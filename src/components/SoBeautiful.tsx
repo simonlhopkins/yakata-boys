@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-const kPauseTime = 3.45;
+// const kPauseTime = 3.45;
 
 enum State {
   Idle,

@@ -7,7 +7,7 @@ function MichaelCheers() {
   const [isCheersing, setIsCheersing] = useState<boolean>(false);
   const [isKanpai, setIsKanpai] = useState<boolean>(false);
   const animateCheers = (frames: number[]) =>
-    new Promise<void>((resolve, reject) => {
+    new Promise<void>((resolve) => {
       const setImg = (url: string) => {
         imgRef.current!.src = url;
       };
