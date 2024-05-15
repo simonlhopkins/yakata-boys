@@ -7,3 +7,120 @@
 body {
   background-color: black;
 }
+
+/* chat poo poo pee */
+/* Reset default styles */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ul,
+ol,
+li,
+form,
+label,
+input,
+button,
+textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Use a common sans-serif font */
+  background-color: #f5f5f5; /* Light background color */
+}
+
+a {
+  color: #0000ee; /* Classic blue link color */
+  text-decoration: none; /* Remove default underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+button {
+  font-family: "Courier New", Courier, monospace; /* Use a monospace font for buttons */
+  font-size: 16px;
+  color: #000;
+  background-color: #c0c0c0; /* Light gray background for buttons */
+  border: 2px solid #666; /* Dark border */
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #999, -1px -1px 0 #fff; /* Add 3D effect */
+}
+
+button:active {
+  box-shadow: inset 2px 2px 5px #999; /* Inner shadow on active state */
+  background-color: #aaa; /* Darker background on active state */
+}
+
+button:hover {
+  background-color: #ddd; /* Lighter background on hover */
+  border-color: #444; /* Darker border on hover */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  font-family: Arial, sans-serif; /* Use a common sans-serif font for text inputs */
+  font-size: 16px;
+  padding: 8px;
+  border: 2px solid #666; /* Dark border */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing for textareas */
+}
+
+input[type="submit"] {
+  font-family: "Courier New", Courier, monospace; /* Use monospace font for submit buttons */
+  font-size: 16px;
+  color: #fff;
+  background-color: #c0c0c0; /* Light gray background */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #999, -1px -1px 0 #fff; /* 3D effect */
+}
+
+input[type="submit"]:active {
+  box-shadow: inset 2px 2px 5px #999; /* Inner shadow on active state */
+  background-color: #aaa; /* Darker background on active state */
+}
+
+input[type="submit"]:hover {
+  background-color: #ddd; /* Lighter background on hover */
+}
+
+/* Header styling */
+header {
+  background-color: #333; /* Dark header background */
+  color: #fff; /* Light text color */
+  padding: 20px;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333; /* Dark footer background */
+  color: #fff; /* Light text color */
+  padding: 20px;
+}
