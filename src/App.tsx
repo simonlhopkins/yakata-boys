@@ -4,6 +4,7 @@ import SoBeaitiful from "./components/SoBeautiful";
 import { useEffect, useRef } from "react";
 import SongManager from "./SongManager";
 import MichaelCheers from "./components/High/MichaelCheers";
+import Tokyo1 from "./components/Tokyo-1";
 
 function App() {
   const songManager = useRef(new SongManager());
@@ -21,22 +22,19 @@ function App() {
   }, []);
   return (
     <StyledApp>
-      <img src="/gundam.gif" alt="gundam" />
       {/* <SoBeaitiful /> */}
       <MichaelCheers />
+      <Tokyo1 />
     </StyledApp>
   );
 }
 
 const StyledApp = styled.div`
-  img {
-    border: 3px solid orange;
-  }
-  width: 100%;
+  max-width: 100%;
   height: 100%;
-  background-image: url("media/Nakasendo/landscape_1.jpg");
   background-size: contain;
-  overflow: hidden;
+  /* overflow: hidden; */
+  margin-bottom: 100px;
 `;
 
 export default App;
