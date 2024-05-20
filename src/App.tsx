@@ -1,7 +1,6 @@
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import "./App.css";
-import SoBeaitiful from "./components/SoBeautiful";
-import { useEffect, useRef } from "react";
 import SongManager from "./SongManager";
 import MichaelCheers from "./components/High/MichaelCheers";
 import Tokyo1 from "./components/Tokyo-1";

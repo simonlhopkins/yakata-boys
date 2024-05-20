@@ -1,8 +1,8 @@
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { clamp, mapRange, smoothstep } from "../Util";
 import useScrollPercent from "../hooks/UseScrollPercents";
 import useViewportPercentage from "../hooks/UseViewportPercentage";
-import { clamp, mapRange, smoothstep } from "../Util";
 
 function Tokyo1() {
   const [scrollPercent, containerRef, uiScreenRef] = useScrollPercent();
@@ -70,7 +70,8 @@ const StyledTokyo1Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   img,
@@ -113,15 +114,12 @@ function SuzumeTrain() {
     video.currentTime = mapRange(trainScrollPercent, 0, 1, 0, video.duration);
   };
   useEffect(() => {
-    const video = ref.current;
+    const video = ref.current!;
     const handleLoad = () => {
       setIsLoaded(true);
       updateVideoTime();
     };
-
-    if (video) {
-      video.addEventListener("loadeddata", handleLoad);
-    }
+    video.addEventListener("loadeddata", handleLoad);
 
     return () => {
       if (video) {
@@ -129,10 +127,17 @@ function SuzumeTrain() {
       }
     };
   }, []);
+
   if (isLoaded) {
     updateVideoTime();
   }
-  return <StyledSuzumeTrain ref={ref} src="/media/Tokyo-1/suzumeTrain.mov" />;
+
+  return (
+    <StyledSuzumeTrain ref={ref}>
+      <source src="/media/Tokyo-1/suzumeTrain.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </StyledSuzumeTrain>
+  );
 }
 
 const StyledSuzumeTrain = styled.video`
