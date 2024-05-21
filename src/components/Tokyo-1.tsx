@@ -111,11 +111,19 @@ function SuzumeTrain() {
       0,
       1
     );
-    video.currentTime = mapRange(trainScrollPercent, 0, 1, 0, video.duration);
+
+    video.currentTime = mapRange(
+      trainScrollPercent,
+      0,
+      1,
+      0,
+      video.duration - 0.1
+    );
   };
   useEffect(() => {
     const video = ref.current!;
     const handleLoad = () => {
+      video.pause();
       setIsLoaded(true);
       updateVideoTime();
     };
@@ -133,7 +141,7 @@ function SuzumeTrain() {
   }
 
   return (
-    <StyledSuzumeTrain ref={ref}>
+    <StyledSuzumeTrain ref={ref} autoPlay preload="auto">
       <source src="/media/Tokyo-1/suzumeTrain.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </StyledSuzumeTrain>
@@ -144,6 +152,7 @@ const StyledSuzumeTrain = styled.video`
   width: 100%;
   /* width: 640px; */
   /* max-width: 640px; */
+  background-color: aliceblue;
   height: auto;
 `;
 

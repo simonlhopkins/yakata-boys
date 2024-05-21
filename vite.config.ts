@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     headers: {
       "Accept-Ranges": "bytes",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": ["GET", "POST", "OPTIONS"],
+      "Access-Control-Allow-Headers": ["Content-Type", "Range"],
     },
   },
 });
