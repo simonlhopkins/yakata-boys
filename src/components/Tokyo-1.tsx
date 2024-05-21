@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { clamp, mapRange, smoothstep } from "../Util";
 import useScrollPercent from "../hooks/UseScrollPercents";
 import useViewportPercentage from "../hooks/UseViewportPercentage";
-import SuzumeTrainCanvas from "./SuzumeTrainCanvas";
 
 function Tokyo1() {
   const [scrollPercent, containerRef, uiScreenRef] = useScrollPercent();

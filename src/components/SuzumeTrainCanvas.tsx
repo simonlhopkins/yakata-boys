@@ -30,23 +30,29 @@ function SuzumeTrainCanvas() {
       const generateFrames = async () => {
         const ret = [];
         for (let i = 0; i < totalFrames; i++) {
-          const time = mapRange(i, 0, totalFrames, 0, duration);
+          const time = mapRange(i, 0, totalFrames, 0.1, duration);
           video.currentTime = time;
+
           const frame = await new Promise<string>((resolve) => {
+            console.log("adding listener");
             video.addEventListener(
               "seeked",
               function onSeeked() {
+                console.log("seeked");
                 context!.drawImage(video, 0, 0, canvas.width, canvas.height);
                 const frameUrl = canvas.toDataURL("image/png");
                 video.removeEventListener("seeked", onSeeked);
                 const img = new Image();
                 img.src = frameUrl;
                 img.onload = () => resolve(frameUrl);
+                resolve(frameUrl);
               },
               { once: true }
             );
+            console.log(`setting time to ${time}`);
           });
           ret.push(frame);
+          console.log("");
           setFrames((prev) => [...prev, frame]);
         }
         return ret;
@@ -65,7 +71,7 @@ function SuzumeTrainCanvas() {
   const showImg = maxFrames && maxFrames == frames.length;
   return (
     <StyledSuzumeTrainCanvas>
-      <video ref={videoRef}>
+      <video ref={videoRef} autoPlay>
         <source src="/media/Tokyo-1/suzumeTrain.mp4" type="video/mp4" />
       </video>
       <canvas ref={canvasRef} width={"720px"} height={"1280px"}></canvas>
