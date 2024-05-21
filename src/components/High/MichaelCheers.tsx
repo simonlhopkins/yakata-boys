@@ -1,11 +1,27 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const kFrameRate = 6;
 function MichaelCheers() {
   const imgRef = useRef<HTMLImageElement>(null);
   const [isCheersing, setIsCheersing] = useState<boolean>(false);
-  const [isKanpai, setIsKanpai] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  useEffect(() => {
+    const promises = [0, 1, 2]
+      .map((num) => `/media/michaelCheers/crack_${num}.JPG`)
+      .map((url) => {
+        return new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = () => {
+            resolve();
+          };
+        });
+      });
+    Promise.all(promises).then(() => {
+      setIsLoading(false);
+    });
+  }, []);
   const animateCheers = (frames: number[]) =>
     new Promise<void>((resolve) => {
       const setImg = (url: string) => {
@@ -27,14 +43,14 @@ function MichaelCheers() {
       <StyledOverlay className={`${isCheersing ? "hidden" : ""}`}>
         {!isCheersing && (
           <button
-            disabled={isCheersing}
+            disabled={isCheersing || isLoading}
             onClick={async () => {
               setIsCheersing(true);
               await animateCheers([0, 1, 2, 2, 2, 1, 0]);
               setIsCheersing(false);
             }}
           >
-            Cheers?
+            {isLoading ? "loading" : "乾杯"}
           </button>
         )}
       </StyledOverlay>

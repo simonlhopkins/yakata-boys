@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { clamp, mapRange, smoothstep } from "../Util";
 import useScrollPercent from "../hooks/UseScrollPercents";
 import useViewportPercentage from "../hooks/UseViewportPercentage";
+import SuzumeTrainCanvas from "./SuzumeTrainCanvas";
 
 function Tokyo1() {
   const [scrollPercent, containerRef, uiScreenRef] = useScrollPercent();
@@ -57,7 +58,8 @@ function Tokyo1() {
       <img src="/media/Tokyo-1/IMG_0999.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1001.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1002.jpeg" alt="" />
-      <SuzumeTrain />
+      {/* <SuzumeTrain /> */}
+      <SuzumeTrainCanvas />
       <img src="/media/Tokyo-1/IMG_1003.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1004.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1010.jpeg" alt="" />
@@ -74,12 +76,12 @@ const StyledTokyo1Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  gap: 5px;
   img,
   video {
     max-width: 100%;
     width: 512px;
     height: auto;
-    margin: 5px;
   }
   #fixedContainerWrapper {
     width: 100%;
@@ -92,6 +94,7 @@ const StyledTokyo1Wrapper = styled.div`
   #fixedContainer {
     position: sticky;
     display: flex;
+    z-index: 10;
     top: 0px;
     width: 100%;
     height: 100svh;
