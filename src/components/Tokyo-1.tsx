@@ -58,8 +58,8 @@ function Tokyo1() {
       <img src="/media/Tokyo-1/IMG_0999.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1001.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1002.jpeg" alt="" />
-      {/* <SuzumeTrain /> */}
-      <SuzumeTrainCanvas />
+      <SuzumeTrain />
+      {/* <SuzumeTrainCanvas /> */}
       <img src="/media/Tokyo-1/IMG_1003.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1004.jpeg" alt="" />
       <img src="/media/Tokyo-1/IMG_1010.jpeg" alt="" />
